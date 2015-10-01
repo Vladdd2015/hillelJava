@@ -1,96 +1,94 @@
 import java.util.Scanner;
 
-/**
- * Created by Влад on 24.09.2015.
- */
 public class HomeWork {
     public static void main(String[] args) {
-        evenOddNumbers();
-        System.out.println("\n");
-        closeNumber();
-        System.out.println("\n");
-        rectangle();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("If you want to use Math calc,enter 1");
+        System.out.println("If you want to use trunk and fract calc,enter 2");
+        System.out.print("Please,enter your choise: ");
+        int num1 = 1;
+        num1 = scan.nextInt();
+        if (num1 == 1) {
+            calc();
+        } else {
+            trunkFract();
+        }
 
 
     }
 
-    private static void evenOddNumbers() {
+    public static void calc() {
+        Scanner scan = new Scanner(System.in);
+
+
+        System.out.print("Enter first number: ");
+        double number1 = scan.nextDouble();
+
+        System.out.print("Choose your operation: ");
+        char operation = scan.next().charAt(0);
+
+        System.out.print("Enter second number: ");
+        double number2 = scan.nextDouble();
+
+        double result = 0;
+
+        switch (operation) {
+            case '+':
+                result = number1 + number2;
+                break;
+            case '-':
+                result = number1 - number2;
+                break;
+            case '*':
+                result = number1 * number2;
+                break;
+            case '/':
+                if (number2 == 0) {
+                    System.out.println("Division is not possible ");
+                    break;
+                } else
+                    result = number1 / number2;
+                break;
+
+
+            default:
+                System.out.println("You have entered a wrong operation ");
+                break;
+
+        }
+
+        System.out.println("Result = " + result);
+    }
+
+    public static void trunkFract() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter your integer number: ");
 
-        int number = scanner.nextInt();
+        System.out.print("Enter a number: ");
 
-        if (number % 2 == 0) {
-            System.out.println("Your number is even");
-        } else {
-            System.out.println("Your number is odd ");
+        double number = scanner.nextDouble();
 
+
+        System.out.print("Choose your operation(t or f): ");
+
+        char op = scanner.next().charAt(0);
+        double result = 0;
+        switch (op) {
+            case 't':
+                int a;
+                a = (int) number;
+                result = a;
+
+                break;
+            case 'f':
+                int res = (int) number; //целая часть
+                double res2 = number - res;
+                result = res2;
+
+                break;
         }
+
+        System.out.println("Result = " + result);
     }
-
-    private static void closeNumber() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter your first number: ");
-        int number1 = scanner.nextInt();
-
-        System.out.print("Enter your second number: ");
-        int number2 = scanner.nextInt();
-
-        int constantNumber = 10;
-        int result1 = constantNumber - number1;
-
-        if (result1 > 0) {
-            result1 = result1;
-        } else {
-            result1 = Math.abs(result1);
-        }
-
-
-        int result2 = constantNumber - number2;
-
-        if (result2 > 0) {
-            result2 = result2;
-        } else {
-            result2 = Math.abs(result2);
-        }
-
-
-        if (result1 < result2) {
-            System.out.println("First number is the nearest to 10 ");
-        } else if (result1 == result2) {
-            System.out.println("First and second numbers are near 10");
-        } else {
-            System.out.println("Second number is the nearest to 10");
-        }
-
-    }
-
-    private static void rectangle() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter perimeter of your rectangle(in cm) : ");
-        double perimetr = scanner.nextInt();
-
-        System.out.print("Enter area of your rectangle(in cm) : ");
-        double area = scanner.nextInt();
-
-        double summ = perimetr / 2;
-
-
-        double discriminant = (summ * summ) - (4 * area);
-        if (discriminant > 0) {
-            double lenth = ((summ + Math.sqrt(discriminant)) / 2);
-            double height = ((summ - Math.sqrt(discriminant)) / 2);
-            System.out.println("Rectange lehth is " + lenth + " centimeters");
-            System.out.println("Rectange height is " + height + " centimeters");
-        } else {
-            System.out.println("Rectangle doesnt exist ");
-        }
-
-
-    }
-
 
 }
