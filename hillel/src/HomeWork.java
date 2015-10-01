@@ -69,8 +69,11 @@ public class HomeWork {
         else if(result >=-2147483648 && result <=2147483647 ){
             System.out.println("Result = " + result + "(int)");
         }
-        else{
+        else if(result>=-922372036854775808L&& result <=922372036854775807L){
             System.out.println("Result = " + result + "(long)");
+        }
+        else{
+            System.out.println("Result = " + result + "(double)");
         }
 
 
