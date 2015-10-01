@@ -56,8 +56,25 @@ public class HomeWork {
                 break;
 
         }
+        if ((int)Math.round(result)!=result){
+            System.out.println("Result = " + result + "(double)");
 
-        System.out.println("Result = " + result);
+        }
+        else if(result >= -127 && result <= 128){
+            System.out.println("Result = " + result + "(byte)");
+        }
+        else if(result >=-32768 && result <=32767){
+            System.out.println("Result = " + result + "(short)");
+        }
+        else if(result >=-2147483648 && result <=2147483647 ){
+            System.out.println("Result = " + result + "(int)");
+        }
+        else{
+            System.out.println("Result = " + result + "(long)");
+        }
+
+
+
     }
 
     public static void trunkFract() {
