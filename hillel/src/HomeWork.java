@@ -1,114 +1,68 @@
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Random;
 
 public class HomeWork {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("If you want to use Math calc,enter 1");
-        System.out.println("If you want to use trunk and fract calc,enter 2");
-        System.out.print("Please,enter your choise: ");
-        int num1 = 1;
-        num1 = scan.nextInt();
-        if (num1 == 1) {
-            calc();
-        } else {
-            trunkFract();
+
+
+        //tryToGuess();
+
+        //telegramCost();
+        public static String crypt(String message, char key)
+        {
+            char[] chars = message.toCharArray();
+
         }
-
-
     }
 
-    public static void calc() {
-        Scanner scan = new Scanner(System.in);
-
-
-        System.out.print("Enter first number: ");
-        double number1 = scan.nextDouble();
-
-        System.out.print("Choose your operation: ");
-        char operation = scan.next().charAt(0);
-
-        System.out.print("Enter second number: ");
-        double number2 = scan.nextDouble();
-
-        double result = 0;
-
-        switch (operation) {
-            case '+':
-                result = number1 + number2;
-                break;
-            case '-':
-                result = number1 - number2;
-                break;
-            case '*':
-                result = number1 * number2;
-                break;
-            case '/':
-                if (number2 == 0) {
-                    System.out.println("Division is not possible ");
-                    break;
-                } else
-                    result = number1 / number2;
-                break;
-
-
-            default:
-                System.out.println("You have entered a wrong operation ");
-                break;
-
-        }
-        if ((int)Math.round(result)!=result){
-            System.out.println("Result = " + result + "(double)");
-
-        }
-        else if(result >= -127 && result <= 128){
-            System.out.println("Result = " + result + "(byte)");
-        }
-        else if(result >=-32768 && result <=32767){
-            System.out.println("Result = " + result + "(short)");
-        }
-        else if(result >=-2147483648 && result <=2147483647 ){
-            System.out.println("Result = " + result + "(int)");
-        }
-        else if(result>=-922372036854775808L&& result <=922372036854775807L){
-            System.out.println("Result = " + result + "(long)");
-        }
-        else{
-            System.out.println("Result = " + result + "(double)");
-        }
-
-
-
-    }
-
-    public static void trunkFract() {
+    public static void telegramCost() {
         Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Enter your message ");
+        String message = scanner.nextLine();
+        String[] words = message.split(" ");
+        System.out.print("One word cost ");
+        int cost = scanner.nextInt();
+        int i;
 
-        System.out.print("Enter a number: ");
+        for ( i = 1; i<= words.length;i++){
 
-        double number = scanner.nextDouble();
-
-
-        System.out.print("Choose your operation(t or f): ");
-
-        char op = scanner.next().charAt(0);
-        double result = 0;
-        switch (op) {
-            case 't':
-                int a;
-                a = (int) number;
-                result = a;
-
-                break;
-            case 'f':
-                int res = (int) number; //целая часть
-                double res2 = number - res;
-                result = res2;
-
-                break;
         }
-
-        System.out.println("Result = " + result);
+        cost *=i;
+        System.out.println("You need to pay " + cost + " money for your message");
     }
 
+    public static void tryToGuess() {
+        Random rand = new Random();
+        int numberToGuess = rand.nextInt(1000);
+        int numberOfTries = 0;
+        Scanner input = new Scanner(System.in);
+        boolean win = false;
+        System.out.println("- Try to guessed number from 1 to 1000");
+
+        while (win == false) {
+
+            System.out.print("Enter your number:");
+            int guess = input.nextInt();
+
+            numberOfTries++;
+
+            if (guess == numberToGuess) {
+                win = true;
+            }
+            else if(guess>1000){
+                System.out.println("Your number is wrong");
+            }
+            else if (guess < numberToGuess) {
+                System.out.println("- Your number is low ");
+            } else if (guess > numberToGuess) {
+                System.out.println("- Your number is high");
+            }
+        }
+        System.out.println("My congratilation! You are winner!!!");
+        System.out.println("The number is: " + numberToGuess);
+
+        System.out.println("Number of tries: " + numberOfTries);
+    }
 }
