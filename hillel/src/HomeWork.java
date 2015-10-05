@@ -9,11 +9,11 @@ public class HomeWork {
         //tryToGuess();
 
         //telegramCost();
-        public static String crypt(String message, char key)
+       /* public static String crypt(String message, char key)
         {
             char[] chars = message.toCharArray();
 
-        }
+        }*/
     }
 
     public static void telegramCost() {
