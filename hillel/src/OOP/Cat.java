@@ -1,7 +1,9 @@
+package OOP;
+
 /**
  * Created by VPalienko on 05.10.2015.
  */
-public class Cat {
+public class Cat extends Animals {
     public static final boolean domestic = true;
     public static final boolean predator = true;
 
@@ -23,4 +25,19 @@ public class Cat {
         this.color = color;
     }
 
+    public boolean equals(Cat other){
+        if(pet != other.pet ) return false;
+        if(age != other.age) return false;
+        if (!name.equals(other.name)) return false;
+        if (!color.equals(other.color)) return false;
+        return true;
+    }
+    public String makeSound(){
+        return "Meow";
+    }
+
+    @Override
+    public String toString() {
+        return "Cat{}";
+    }
 }
