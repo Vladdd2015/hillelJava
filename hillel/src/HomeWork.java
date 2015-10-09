@@ -11,32 +11,41 @@ public class HomeWork {
         String message = scanner.nextLine();
         System.out.print("Enter your key: ");
         char key = scanner.next().charAt(0);
-       String res = crypt(message, key);
+        String res = crypt(message, key);
         System.out.println("Crypted message: " + res);
-
-
-
-    }
-
-        public static String crypt(String message,char key){
-            char[] chars = message.toCharArray();
-
-            for(int i = 0; i< chars.length; i++)
-            {
-              chars[i] ^= key;
-            }
-
-            for(int i = 0; i< chars.length; i++)
-            {
-                chars[i] ^= key;
-            }
-
-           message = String.copyValueOf(chars);
-
-            return message;
-    }
+        String res2 = decrypt(res,key);
+        System.out.println("Decrypted message: " + res2);
 
 
     }
+
+    public static String crypt(String message, char key) {
+        char[] chars = message.toCharArray();
+
+        for (int i = 0; i < chars.length; i++) {
+            chars[i] ^= key;
+        }
+
+
+        message = String.copyValueOf(chars);
+
+        return message;
+    }
+
+    public static String decrypt(String res, char key) {
+        char[] chars = res.toCharArray();
+
+        for (int i = 0; i < chars.length; i++) {
+            chars[i] ^= key;
+        }
+
+
+        res = String.copyValueOf(chars);
+
+        return res;
+
+
+    }
+}
 
 
